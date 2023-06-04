@@ -1,0 +1,41 @@
+def first_unique_character(s):
+
+    """
+
+    Finds the index of the first non-repeating character in the given string s.
+
+    If it does not exist, returns -1.
+
+    """
+
+    char_count = {}  # Dictionary to store the count of each character
+
+    # Count the occurrences of each character in the string
+
+    for char in s:
+
+        char_count[char] = char_count.get(char, 0) + 1
+
+    # Find the first non-repeating character and return its index
+
+    for i in range(len(s)):
+
+        if char_count[s[i]] == 1:
+
+            return i
+
+    return -1
+
+# Test the function
+
+s = "leetcode"
+
+print(first_unique_character(s))  # Output: 0
+
+s = "loveleetcode"
+
+print(first_unique_character(s))  # Output: 2
+
+s = "aabb"
+
+print(first_unique_character(s))  # Output: -1
