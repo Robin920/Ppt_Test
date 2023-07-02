@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Position</title>
+    <style>
+      .static-example {
+        position: static;
+      }
+
+      .fixed-example {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+      }
+
+      .sticky-example {
+        position: sticky;
+        top: 20px;
+      }
+      .relative-example {
+        position: relative;
+        top: 10px;
+        left: 20px;
+      }
+
+      .container {
+        position: relative;
+        height: 200px;
+        width: 300px;
+      }
+
+      .absolute-example {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <!--Static Position:
+     The default position value is static.
+     Elements with a static position are positioned according to the normal 
+     flow of the document.-->
+    <div class="static-example">
+      <p>This is a paragraph with static position.</p>
+    </div>
+
+    <!--Fixed Position:
+Elements with a fixed position are positioned relative to the viewport and do
+ not move when the page is scrolled.-->
+    <div class="fixed-example">
+      <p>This is a paragraph with fixed position.</p>
+    </div>
+
+    <!--Sticky Position:
+Elements with a sticky position are positioned based on the user's scroll position.
+It behaves like relative positioning until it reaches a specific scroll position, and
+then it becomes fixed.-->
+    <div class="sticky-example">
+      <p>This is a paragraph with sticky position.</p>
+    </div>
+
+    <!--Relative Position:
+Elements with a relative position are positioned relative to their normal position in the
+document flow. It allows you to adjust the position using the top, bottom, left, and right
+properties.-->
+    <div class="relative-example">
+      <p>This is a paragraph with relative position.</p>
+    </div>
+
+    <!--Absolute Position:
+Elements with an absolute position are positioned relative to their closest positioned ancestor
+or to the initial containing block if no positioned ancestor is found. It allows you to precisely
+position elements within their container.-->
+    <div class="container">
+      <div class="absolute-example">
+        <p>This is a paragraph with absolute position.</p>
+      </div>
+    </div>
+  </body>
+</html>
