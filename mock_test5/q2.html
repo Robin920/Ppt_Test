@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input box</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        #list{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        li{
+            list-style: none;
+            font-size: 1.6rem;
+        }
+        #txt{
+            border-radius: 10px;
+            border: 2px solid blue;
+            width: 30vw;
+            height: 30px;
+            margin-top: 10em;
+        }
+        button{
+            border: none;
+            border-radius: 10px;
+            background-color: blue;
+            color: white;
+            width: 10vw;
+            height: 40px;
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="txt">
+    <button onclick="add()">Submit</button>
+
+    <ul id="list"></ul>
+</body>
+
+<script>
+    function add(){
+        let list = document.getElementById("list");
+        let input = document.getElementById("txt");
+        let inputVal = input.value;
+        
+        if(inputVal !== ""){
+            let item = document.createElement("li");
+            item.textContent = inputVal;
+            list.appendChild(item);
+            input.value = "";
+        }
+    }
+</script>
+</html>

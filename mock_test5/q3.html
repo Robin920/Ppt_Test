@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <title>JSONPlaceholder Data</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10%;
+        font-family: "Roboto", sans-serif;
+      }
+      .skeleton-loader {
+        height: 20px;
+        width: 30vw;
+        border-radius: 5px;
+        background-color: lightgray;
+        margin-bottom: 10px;
+      }
+      #dataContainer{
+        color: blueviolet;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Data fetched from JSONPlaceholder API</h1>
+
+    <div id="dataContainer"></div>
+
+    <script>
+      function showLoader() {
+        const container = document.getElementById("dataContainer");
+        container.innerHTML = "";
+
+        for (let i = 0; i < 5; i++) {
+          const loader = document.createElement("div");
+          loader.classList.add("skeleton-loader");
+          container.appendChild(loader);
+        }
+      }
+
+      function fetchData() {
+        showLoader();
+
+        fetch("https://jsonplaceholder.typicode.com/posts?_limit=10")
+          .then((response) => response.json())
+          .then((data) => {
+            const container = document.getElementById("dataContainer");
+            container.innerHTML = "";
+
+            data.forEach((item) => {
+              const listItem = document.createElement("div");
+              listItem.textContent = item.title;
+              container.appendChild(listItem);
+            });
+          })
+          .catch((error) => {
+            console.log("Error:", error);
+          });
+      }
+
+      fetchData();
+    </script>
+  </body>
+</html>
